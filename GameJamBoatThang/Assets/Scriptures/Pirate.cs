@@ -3,12 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 using InControl;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Pirate : MonoBehaviour
 {
     public int playerIndex;
 
-    Rigidbody myBody;
+    //Rigidbody myBody;
 
     float xIn;
     float yIn;
@@ -24,12 +23,17 @@ public class Pirate : MonoBehaviour
 
     InputDevice myDevice;
 
+    bool isOnBoat = true;
+    Boat myBoat;
+
 	// Use this for initialization
 	void Start ()
     {
-        myBody = GetComponent<Rigidbody>();
+        //myBody = GetComponent<Rigidbody>();
         myIcon = UIManager.instance.transform.Find("p"+ (playerIndex+1).ToString() +"icon").GetComponent<Image>();
         myIcon.enabled = false;
+
+        myBoat = transform.parent.GetComponent<Boat>();
     }
 
     // Update is called once per frame
@@ -52,10 +56,10 @@ public class Pirate : MonoBehaviour
                 myIcon.transform.position = Camera.main.WorldToScreenPoint(transform.position + (Vector3.forward * 0.5f));
             }
         }
-        //else
-        //{
-        //    nearbyStation.ProcessControls(player);
-        //}
+        else
+        {
+            nearbyStation.ProcessControls(myDevice);
+        }
 
         if (myDevice.Action1.WasPressed)
         {
@@ -86,10 +90,11 @@ public class Pirate : MonoBehaviour
 
     void FixedUpdate()
     {
-        velo.x = xIn * moveSpeed;
-        velo.z = yIn * moveSpeed;
+        velo.x = xIn * moveSpeed * Time.deltaTime;
+        velo.y = yIn * moveSpeed * Time.deltaTime;
 
-        myBody.velocity = velo;
+        //myBody.velocity = velo + myBoat.GetComponent<Rigidbody>().velocity;
+        transform.localPosition += velo;
 
         if (velo.magnitude > 0.1f)
         {

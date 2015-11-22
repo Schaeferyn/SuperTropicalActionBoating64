@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using InControl;
+//using InControl;
 
 public class Boat : MonoBehaviour {
 
@@ -15,39 +15,39 @@ public class Boat : MonoBehaviour {
 	public int lastCheck = 0;
 
 	float rotation = 0;
-	float xIn;
-	float yIn;
-	bool aIn;
+	public float xIn;
+	public float yIn;
+	public bool aIn;
 	bool keyPressed = false;
 
-    InputDevice myDevice;
+    //InputDevice myDevice;
 
 	// Update is called once per frame
 	void Update () {
 
-        if (InputManager.Devices.Count - 1 >= playerIndex)
-            myDevice = InputManager.Devices[playerIndex];
-        else
-            myDevice = null;
+  //      if (InputManager.Devices.Count - 1 >= playerIndex)
+  //          myDevice = InputManager.Devices[playerIndex];
+  //      else
+  //          myDevice = null;
 
-        if (myDevice == null) return;
+  //      if (myDevice == null) return;
 	
-        xIn = myDevice.LeftStick.X;
-        yIn = myDevice.LeftStick.Y;
-        aIn = myDevice.Action1.WasPressed;
+  //      xIn = myDevice.LeftStick.X;
+  //      yIn = myDevice.LeftStick.Y;
+  //      aIn = myDevice.Action1.WasPressed;
 
-		if (cannon == true) {
-			// Cannon Controls
+		//if (cannon == true) {
+		//	// Cannon Controls
 
-			if(aIn){
-				if(!keyPressed){
-					keyPressed = true;
-					fireCannon ();
-				}
-			} else {
-				keyPressed = false;
-			}
-		}
+		//	if(aIn){
+		//		if(!keyPressed){
+		//			keyPressed = true;
+		//			fireCannon ();
+		//		}
+		//	} else {
+		//		keyPressed = false;
+		//	}
+		//}
 		if (wheel == true) {
 			// Wheel Controls
 
@@ -65,11 +65,12 @@ public class Boat : MonoBehaviour {
 		}
 	}
 
-	void fireCannon(){
-		Transform thisCannon = this.transform.FindChild("Cannon");
-		Rigidbody clone = (Rigidbody)Instantiate(cannonBall, thisCannon.transform.position, Quaternion.Euler(90, 0, 0));
-		clone.AddForce (this.transform.root.right * 80f);
+	public void fireCannon(Transform cannon){
+		//Transform thisCannon = this.transform.FindChild("Cannon");
+		Rigidbody clone = (Rigidbody)Instantiate(cannonBall, cannon.transform.position, Quaternion.Euler(90, 0, 0));
+		clone.AddForce (cannon.right * 80f);
 		Destroy(clone.transform.gameObject, 5f);
+        GetComponent<Rigidbody>().AddForceAtPosition(cannon.right * -10, cannon.position);
 	}
 
 	void backToCheckpoint(){
