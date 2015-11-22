@@ -77,8 +77,7 @@ public class checkpoint : MonoBehaviour {
 			boat.lastCheckpoint = this.transform;
 			boat.lastCheck++;
 
-             //*&& boat.lastCheck > 2*
-			if(finishLine)
+			if(finishLine && boat.lastCheck > 2 )
             {
 
                 //Debug.Log("asdf3");
@@ -100,7 +99,6 @@ public class checkpoint : MonoBehaviour {
                     }
                 }
             }
-            //}
 		}
 	}
 
