@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scriptures/playVideo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scriptures/checkpoint.cs">
     <Files>
-      <File FileName="Assets/Scriptures/playVideo.cs" Line="41" Column="15" />
+      <File FileName="Assets/Scriptures/playVideo.cs" Line="36" Column="30" />
       <File FileName="Assets/Scriptures/policeGun.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scriptures/MenuControls.cs" Line="30" Column="57" />
+      <File FileName="Assets/Scriptures/MenuControls.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scriptures/checkpoint.cs" Line="87" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

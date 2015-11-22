@@ -30,14 +30,15 @@ public class checkpoint : MonoBehaviour {
 	}
 
 	void Update(){
-//#if UNITY_EDITOR
-//        if (Input.anyKeyDown)
-//        {
-//            winning = true;
-//            AudioSource victAudio = GameObject.Find("VictoryAudio").GetComponent<AudioSource>();
-//            victAudio.Play();
-//        }
-//#endif
+	#if UNITY_EDITOR
+	        if (Input.anyKeyDown && finishLine)
+	        {
+	            winning = true;
+	            AudioSource victAudio = GameObject.Find("VictoryAudio").GetComponent<AudioSource>();
+	            victAudio.Play();
+				Invoke ("backToMenu", 5f);
+	        }
+	#endif
 
         if (winning == true) {
 			AudioSource mainAudio = GameObject.Find ("BoatPartyAudio").GetComponent<AudioSource> ();
@@ -86,6 +87,7 @@ public class checkpoint : MonoBehaviour {
 				victAudio.Play ();
                 if (victoryText != null)
                 {
+
                     //victoryText.enabled = true;
                     if (boat.teamIndex == 0)
                     {
@@ -109,4 +111,8 @@ public class checkpoint : MonoBehaviour {
         victoryOutline.effectColor = Color.Lerp(Color.black, victoryColor, lerpPercent);
         victoryShadow.effectColor = Color.Lerp(Color.black, victoryColor, lerpPercent);
     }
+
+	void backToMenu(){
+		Application.LoadLevel (0);
+	}
 }
