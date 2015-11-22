@@ -25,6 +25,7 @@ public class Pirate : MonoBehaviour
 
     bool isOnBoat = true;
     Boat myBoat;
+    Camera pirateCam;
 
 	// Use this for initialization
 	void Start ()
@@ -34,6 +35,7 @@ public class Pirate : MonoBehaviour
         myIcon.enabled = false;
 
         myBoat = transform.parent.GetComponent<Boat>();
+        pirateCam = myBoat.GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -53,7 +55,7 @@ public class Pirate : MonoBehaviour
 
             if (myIcon.enabled)
             {
-                myIcon.transform.position = Camera.main.WorldToScreenPoint(transform.position + (Vector3.forward * 0.5f));
+                myIcon.transform.position = pirateCam.WorldToScreenPoint(transform.position + (Vector3.forward * 0.05f));
             }
         }
         else
@@ -94,7 +96,10 @@ public class Pirate : MonoBehaviour
         velo.y = yIn * moveSpeed * Time.deltaTime;
 
         //myBody.velocity = velo + myBoat.GetComponent<Rigidbody>().velocity;
-        transform.localPosition += velo;
+        Vector3 newpos = transform.localPosition += velo;
+        newpos.x = Mathf.Clamp(newpos.x, -0.315f, 0.315f);
+        newpos.y = Mathf.Clamp(newpos.y, -0.925f, 0.177f);
+        transform.localPosition = newpos;
 
         if (velo.magnitude > 0.1f)
         {

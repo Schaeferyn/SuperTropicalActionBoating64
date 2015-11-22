@@ -9,7 +9,6 @@ public class StationCannon : BoatStation
 
     //}
 
-	public int health = 100;
     public Transform cannon;
     public SpritesheetAnimator anim;
 
