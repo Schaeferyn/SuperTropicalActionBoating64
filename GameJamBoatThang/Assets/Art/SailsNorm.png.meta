@@ -1,9 +1,12 @@
 fileFormatVersion: 2
-guid: d80589fdd8df67e40a03d0139c1b8c03
-timeCreated: 1448151882
+guid: 083cfdad17fce1c4b83adaad0ee13c03
+timeCreated: 1448152182
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: SailsNorm_0
+    21300002: SailsNorm_1
+    21300004: SailsNorm_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,18 +41,48 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 48
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: SailsNorm_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 48
+        width: 49
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SailsNorm_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 24
+        width: 49
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SailsNorm_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

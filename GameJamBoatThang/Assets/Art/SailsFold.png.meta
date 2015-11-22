@@ -1,0 +1,111 @@
+fileFormatVersion: 2
+guid: 3340eed3d62e1ca49bad6d1cdd1e8a22
+timeCreated: 1448153059
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SailsFold_0
+    21300002: SailsFold_1
+    21300004: SailsFold_2
+    21300006: SailsFold_3
+    21300008: SailsFold_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 48
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SailsFold_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 67
+        width: 49
+        height: 14
+      alignment: 9
+      pivot: {x: .503240705, y: .630898058}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SailsFold_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 52
+        width: 49
+        height: 15
+      alignment: 9
+      pivot: {x: .501620352, y: .445039868}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SailsFold_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 36
+        width: 49
+        height: 15
+      alignment: 9
+      pivot: {x: .502150178, y: .376921088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SailsFold_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 20
+        width: 49
+        height: 16
+      alignment: 9
+      pivot: {x: .477128208, y: .366914749}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SailsFold_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3
+        width: 49
+        height: 16
+      alignment: 9
+      pivot: {x: .481513739, y: .373340905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
