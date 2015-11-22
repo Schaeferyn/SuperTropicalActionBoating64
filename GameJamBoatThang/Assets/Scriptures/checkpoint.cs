@@ -5,17 +5,39 @@ using UnityEngine.UI;
 public class checkpoint : MonoBehaviour {
 	
 	bool isPassed = false;
+	bool winning = false;
 	public bool finishLine = false;
+	Color tempCol;
+	public GameObject gameOverText;
 
-	#if UNITY_EDITOR
-
-	void Update(){
-		if (Input.anyKeyDown) {
-			YouWin();
-		}
+	void Start(){
+		tempCol = new Color(255, 255, 255, 0);
 	}
 
-	#endif
+	void Update(){
+//		#if UNITY_EDITOR
+//		if (Input.anyKeyDown) {
+//			winning = true;
+//			AudioSource victAudio = GameObject.Find ("VictoryAudio").GetComponent<AudioSource> ();
+//			victAudio.Play ();
+//		}
+//		#endif
+
+		if (winning == true) {
+			AudioSource mainAudio = GameObject.Find ("BoatPartyAudio").GetComponent<AudioSource> ();
+			if (mainAudio.volume > 0) {
+				mainAudio.volume-=0.001f;
+			}
+			
+			if(tempCol.a < 255){
+				tempCol.a = tempCol.a += 0.02f;
+				Debug.Log(tempCol);
+				if(gameOverText){
+					gameOverText.GetComponent<Text>().color = tempCol;
+				}
+			}
+		}
+	}
 
 	void OnTriggerEnter(Collider col){
 
@@ -27,23 +49,10 @@ public class checkpoint : MonoBehaviour {
 			boat.lastCheck++;
 
 			if(finishLine == true && boat.lastCheck > 2){
-				YouWin();
+				winning = true;
+				AudioSource victAudio = GameObject.Find ("VictoryAudio").GetComponent<AudioSource> ();
+				victAudio.Play ();
 			}
 		}
-	}
-	void YouWin(){
-		AudioSource mainAudio = GameObject.Find ("BoatPartyAudio").GetComponent<AudioSource> ();
-		AudioSource victAudio = GameObject.Find ("VictoryAudio").GetComponent<AudioSource> ();
-		if (mainAudio.volume > 0) {
-			mainAudio.volume-=0.1f;
-		}
-
-		victAudio.Play ();
-
-		if (mainAudio.volume < 0.5f && victAudio.volume < 1f) {
-			victAudio.volume+=0.1f;
-		}
-
-
 	}
 }

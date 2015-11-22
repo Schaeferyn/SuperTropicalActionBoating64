@@ -6,6 +6,11 @@ public class projectile : MonoBehaviour {
 	public GameObject particle;
 
 	void OnCollisionEnter(Collision col){
+		if (col.gameObject.tag == "Station") {
+			col.gameObject.GetComponent<StationCannon>().health -= 25;
+			Debug.Log(col.gameObject.GetComponent<StationCannon>().health);
+		}
+
 		GetComponent<SpriteRenderer> ().enabled = false;
 		GetComponent<SphereCollider> ().enabled = false;
 		GetComponent<AudioSource> ().Play ();
