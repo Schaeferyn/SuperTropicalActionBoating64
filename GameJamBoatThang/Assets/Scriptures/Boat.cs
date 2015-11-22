@@ -63,9 +63,6 @@ public class Boat : MonoBehaviour {
 				this.GetComponent<Rigidbody> ().AddRelativeForce (new Vector3 (0, yIn, 0));
 			}
 		}
-		if (Input.GetKeyDown ("space")) {
-			backToCheckpoint();
-		}
 	}
 
 	void fireCannon(){

@@ -25,7 +25,6 @@ public class checkpoint : MonoBehaviour {
 			GameObject TheBoat = col.transform.gameObject;
 			Boat boat = TheBoat.GetComponent<Boat>();
 			boat.lastCheckpoint = this.transform;
-			Debug.Log("sent the thing");
 		}
 	}
 }
