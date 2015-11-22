@@ -13,6 +13,7 @@ public class Boat : MonoBehaviour {
 	public float baseSpeed = 2;
 	private float maxSpeed = 2.5f;
 	public Rigidbody cannonBall;
+	public int lastCheck = 0;
 
 	float rotation = 0;
 	float xIn;

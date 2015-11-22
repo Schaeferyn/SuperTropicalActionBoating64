@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scriptures/checkpoint.cs">
     <Files>
-      <File FileName="Assets/Scriptures/Boat.cs" Line="7" Column="8" />
-      <File FileName="Assets/Scriptures/checkpoint.cs" Line="25" Column="38" />
+      <File FileName="Assets/Scriptures/Boat.cs" Line="65" Column="4" />
+      <File FileName="Assets/Scriptures/checkpoint.cs" Line="30" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

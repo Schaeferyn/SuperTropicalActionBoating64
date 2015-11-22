@@ -2,10 +2,9 @@
 using System.Collections;
 
 public class checkpoint : MonoBehaviour {
-
-
-	int lastCheck = 0;
+	
 	bool isPassed = false;
+	public bool finishLine = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,10 +20,18 @@ public class checkpoint : MonoBehaviour {
 
 		if (col.tag == "Boat" && isPassed == false) {
 			isPassed = true;
-			lastCheck++;
 			GameObject TheBoat = col.transform.gameObject;
 			Boat boat = TheBoat.GetComponent<Boat>();
 			boat.lastCheckpoint = this.transform;
+			boat.lastCheck++;
+
+			Debug.Log(boat.lastCheck);
+			if(finishLine == true && boat.lastCheck > 2){
+				YouWin();
+			}
 		}
+	}
+	void YouWin(){
+		Debug.Log ("Game Over!  You win!");
 	}
 }
