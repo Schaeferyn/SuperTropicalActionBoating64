@@ -16,4 +16,12 @@ public class UIManager : MonoBehaviour
 	void Update () {
 	
 	}
+
+	public void startGame(){
+		Application.LoadLevel (1);
+	}
+
+	public void Quit(){
+		Application.Quit();
+	}
 }

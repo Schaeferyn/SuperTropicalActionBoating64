@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scriptures/checkpoint.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scriptures/UIManager.cs">
     <Files>
-      <File FileName="Assets/Scriptures/Boat.cs" Line="65" Column="4" />
-      <File FileName="Assets/Scriptures/checkpoint.cs" Line="30" Column="42" />
+      <File FileName="Assets/Scriptures/Boat.cs" Line="16" Column="9" />
+      <File FileName="Assets/Scriptures/checkpoint.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scriptures/breakwall.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scriptures/UIFunctions.cs" Line="4" Column="43" />
+      <File FileName="Assets/Scriptures/UIManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
