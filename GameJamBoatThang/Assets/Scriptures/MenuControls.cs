@@ -43,8 +43,9 @@ public class MenuControls : MonoBehaviour {
 		if (aIn) {
 			Launch ();
 		}
-	}
 
+	}
+	
 	void Launch(){
 		Application.LoadLevel (1);
 	}

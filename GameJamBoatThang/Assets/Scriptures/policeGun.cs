@@ -14,7 +14,9 @@ public class policeGun : MonoBehaviour {
 	void Update () {
 		for (int i = 0; i < boats.Length; i++) {
 			float dist = Vector3.Distance(transform.position, boats[i].transform.position);
-			Debug.Log(dist);
+			if(dist < 8){
+
+			}
 		}
 	}
 }
