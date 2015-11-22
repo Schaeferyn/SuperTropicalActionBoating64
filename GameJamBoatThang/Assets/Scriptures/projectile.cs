@@ -5,6 +5,10 @@ public class projectile : MonoBehaviour {
 
 	public GameObject particle;
 
+	void Start(){
+		Physics.IgnoreLayerCollision (8, 6, true);
+	}
+
 	void OnCollisionEnter(Collision col){
 		if (col.gameObject.tag == "Station") {
 			col.gameObject.GetComponent<StationCannon>().health -= 25;
