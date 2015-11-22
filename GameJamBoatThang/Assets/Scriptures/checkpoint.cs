@@ -19,9 +19,13 @@ public class checkpoint : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 
-		if (col.gameObject.name == "Boat" && isPassed == false) {
+		if (col.tag == "Boat" && isPassed == false) {
 			isPassed = true;
 			lastCheck++;
+			GameObject TheBoat = col.transform.gameObject;
+			Boat boat = TheBoat.GetComponent<Boat>();
+			boat.lastCheckpoint = this.transform;
+			Debug.Log("sent the thing");
 		}
 	}
 }

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using Rewired;
 using InControl;
 
 public class Boat : MonoBehaviour {
+
+	public Transform lastCheckpoint;
 
 	public int playerIndex;
 	private bool cannon = true;
@@ -62,6 +63,9 @@ public class Boat : MonoBehaviour {
 				this.GetComponent<Rigidbody> ().AddRelativeForce (new Vector3 (0, yIn, 0));
 			}
 		}
+		if (Input.GetKeyDown ("space")) {
+			backToCheckpoint();
+		}
 	}
 
 	void fireCannon(){
@@ -69,5 +73,14 @@ public class Boat : MonoBehaviour {
 		Rigidbody clone = (Rigidbody)Instantiate(cannonBall, thisCannon.transform.position, Quaternion.Euler(90, 0, 0));
 		clone.AddForce (this.transform.root.right * 80f);
 		Destroy(clone.transform.gameObject, 5f);
+	}
+
+	void backToCheckpoint(){
+		if (lastCheckpoint != null) {
+			this.transform.root.position = lastCheckpoint.position;
+		} else {
+			this.transform.root.position = new Vector3(0f, 0.5f, 3f);
+		}
+		this.transform.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 	}
 }
