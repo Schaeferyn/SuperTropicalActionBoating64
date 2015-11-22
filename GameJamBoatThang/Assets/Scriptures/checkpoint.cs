@@ -6,16 +6,6 @@ public class checkpoint : MonoBehaviour {
 	bool isPassed = false;
 	public bool finishLine = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	void OnTriggerEnter(Collider col){
 
 		if (col.tag == "Boat" && isPassed == false) {
@@ -25,7 +15,6 @@ public class checkpoint : MonoBehaviour {
 			boat.lastCheckpoint = this.transform;
 			boat.lastCheck++;
 
-			Debug.Log(boat.lastCheck);
 			if(finishLine == true && boat.lastCheck > 2){
 				YouWin();
 			}
