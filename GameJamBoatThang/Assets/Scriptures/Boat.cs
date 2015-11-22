@@ -5,7 +5,6 @@ using InControl;
 public class Boat : MonoBehaviour {
 
 	public Transform lastCheckpoint;
-
 	public int playerIndex;
 	private bool cannon = true;
 	private bool mast = true;
