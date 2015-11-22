@@ -12,7 +12,8 @@ public class breakwall : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
-		if(col.gameObject.tag == "projectile"){
+		if(col.transform.root.tag == "Projectile"){
+			Debug.Log("Yo");
 			health--;
 		}
 	}
