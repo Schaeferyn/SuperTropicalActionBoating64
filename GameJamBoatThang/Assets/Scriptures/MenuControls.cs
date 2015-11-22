@@ -28,7 +28,16 @@ public class MenuControls : MonoBehaviour {
 		aIn = myDevice.Action1.WasPressed;
 
 		for (int i = 0; i < InputManager.Devices.Count; i++) {
-			Debug.Log(controllers[i]);
+			if(i < 2){
+				controllers[i].color = Color.blue;
+			} else {
+				controllers[i].color = Color.red;
+			}
+		}
+
+		if (InputManager.Devices.Count < 4) {
+			Text prompt = GameObject.Find("Instructions").GetComponent<Text>();
+			prompt.text = "Waiting for "+(4-InputManager.Devices.Count)+" more players...";
 		}
 
 		if (aIn) {
