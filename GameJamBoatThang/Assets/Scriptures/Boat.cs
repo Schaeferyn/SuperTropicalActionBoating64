@@ -80,6 +80,7 @@ public class Boat : MonoBehaviour {
 		clone.AddForce (cannon.right * 80f);
 		Destroy(clone.transform.gameObject, 5f);
         GetComponent<Rigidbody>().AddForceAtPosition(cannon.right * -10, cannon.position);
+		GameObject.Find ("CannonAudio").GetComponent<AudioSource> ().Play ();
 	}
 
 	void backToCheckpoint(){

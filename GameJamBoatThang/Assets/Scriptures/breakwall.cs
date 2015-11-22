@@ -5,9 +5,13 @@ public class breakwall : MonoBehaviour {
 
 	int health = 2;
 
+	void Start(){
+
+	}
+
 	void Update(){
 		if (health <= 0) {
-			Destroy(this.gameObject);
+			Destroy(this.gameObject, 1.0f);
 		}
 	}
 
