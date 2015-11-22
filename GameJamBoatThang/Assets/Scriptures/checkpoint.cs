@@ -15,13 +15,13 @@ public class checkpoint : MonoBehaviour {
 	}
 
 	void Update(){
-		#if UNITY_EDITOR
-		if (Input.anyKeyDown) {
-			winning = true;
-			AudioSource victAudio = GameObject.Find ("VictoryAudio").GetComponent<AudioSource> ();
-			victAudio.Play ();
-		}
-		#endif
+//		#if UNITY_EDITOR
+//		if (Input.anyKeyDown) {
+//			winning = true;
+//			AudioSource victAudio = GameObject.Find ("VictoryAudio").GetComponent<AudioSource> ();
+//			victAudio.Play ();
+//		}
+//		#endif
 
 		if (winning == true) {
 			AudioSource mainAudio = GameObject.Find ("BoatPartyAudio").GetComponent<AudioSource> ();
