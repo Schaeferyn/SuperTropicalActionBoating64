@@ -19,6 +19,9 @@ public class Pirate : MonoBehaviour
     bool isBusy = false;
 
     Image myIcon;
+    public Sprite goodIcon;
+    public Sprite badIcon;
+
     BoatStation nearbyStation;
 
     InputDevice myDevice;
@@ -26,6 +29,9 @@ public class Pirate : MonoBehaviour
     bool isOnBoat = true;
     Boat myBoat;
     Camera pirateCam;
+
+    public bool hasAmmo = false;
+    SpriteRenderer ammoRenderer;
 
 	// Use this for initialization
 	void Start ()
@@ -36,6 +42,8 @@ public class Pirate : MonoBehaviour
 
         myBoat = transform.parent.GetComponent<Boat>();
         pirateCam = myBoat.GetComponentInChildren<Camera>();
+        ammoRenderer = transform.Find("Ammo").GetComponent<SpriteRenderer>();
+        ammoRenderer.enabled = false;
     }
 
     // Update is called once per frame
@@ -65,7 +73,7 @@ public class Pirate : MonoBehaviour
 
         if (myDevice.Action1.WasPressed)
         {
-            if (isNearStation && !isBusy)
+            if (isNearStation && !isBusy && myIcon.sprite != badIcon)
             {
                 isBusy = true;
                 nearbyStation.Activate(this);
@@ -101,7 +109,12 @@ public class Pirate : MonoBehaviour
         newpos.y = Mathf.Clamp(newpos.y, -0.925f, 0.177f);
         transform.localPosition = newpos;
 
-        if (velo.magnitude > 0.1f)
+
+        //Debug.Log(velo.magnitude);
+        velo.z = velo.y;
+        velo.y = 0;
+
+        if (Mathf.Abs(xIn) > 0.1 || Mathf.Abs(yIn) > 0.1)
         {
             transform.LookAt(transform.position + velo.normalized);
             transform.Rotate(90, 0, 0);
@@ -112,6 +125,28 @@ public class Pirate : MonoBehaviour
     {
         isNearStation = true;
         myIcon.enabled = true;
+        if(station.GetType() == typeof(StationCannon))
+        {
+            if((station as StationCannon).hasAmmo)
+            {
+                if (hasAmmo)
+                    myIcon.sprite = badIcon;
+                else
+                    myIcon.sprite = goodIcon;
+            }
+            else
+            {
+                if (hasAmmo)
+                    myIcon.sprite = goodIcon;
+                else
+                    myIcon.sprite = badIcon;
+            }
+        }
+        else
+        {
+            myIcon.sprite = goodIcon;
+        }
+
         nearbyStation = station;
     }
 
@@ -124,5 +159,17 @@ public class Pirate : MonoBehaviour
         isNearStation = false;
         myIcon.enabled = false;
         nearbyStation = null; 
+    }
+
+    public void PickupAmmo()
+    {
+        hasAmmo = true;
+        ammoRenderer.enabled = true;
+    }
+
+    public void DropAmmo()
+    {
+        hasAmmo = false;
+        ammoRenderer.enabled = false;
     }
 }
