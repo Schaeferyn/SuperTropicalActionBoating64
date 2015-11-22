@@ -7,14 +7,13 @@ public class Boat : MonoBehaviour {
 	public int playerIndex;
 	Player player;
 
-	private bool cannon = true;
+	private bool cannon = false;
 	private bool mast = false;
 	private bool wheel = false;
 
 	public float baseSpeed = 2;
 	private float maxSpeed = 2.5f;
-	public Transform cannonBall;
-	private Transform cannonInstance;
+	public Rigidbody cannonBall;
 
 	float rotation = 0;
 	float xIn;
@@ -48,7 +47,7 @@ public class Boat : MonoBehaviour {
 			}
 
 		} 
-		else if (wheel == true) {
+		if (wheel == true) {
 			// Wheel Controls
 
 			rotation += xIn;
@@ -60,7 +59,7 @@ public class Boat : MonoBehaviour {
 			this.transform.localRotation = temp;
 
 		} 
-		else if (mast == true) {
+		if (mast == true) {
 			// Mast Controls
 
 			if (this.GetComponent<Rigidbody> ().velocity.z < maxSpeed) {
@@ -72,10 +71,8 @@ public class Boat : MonoBehaviour {
 
 	void fireCannon(){
 		Transform thisCannon = this.transform.FindChild("Cannon");
-		Debug.Log("cannoning");
-		GameObject clone = (GameObject)Instantiate(cannonBall, thisCannon.transform.position, Quaternion.identity);
-		clone.AddComponent<Rigidbody> ();
-		clone.GetComponent<Rigidbody>().AddRelativeForce (new Vector3 (2, 0, 0));
+		Rigidbody clone = (Rigidbody)Instantiate(cannonBall, thisCannon.transform.position, Quaternion.Euler(90, 0, 0));
+		clone.AddForce (Vector3.right * 80);
 	}
 
 }
