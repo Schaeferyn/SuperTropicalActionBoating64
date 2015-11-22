@@ -7,9 +7,9 @@ public class Boat : MonoBehaviour {
 	public int playerIndex;
 	Player player;
 
-	private bool cannon = false;
+	private bool cannon = true;
 	private bool mast = false;
-	private bool wheel = false;
+	private bool wheel = true;
 
 	public float baseSpeed = 2;
 	private float maxSpeed = 2.5f;
@@ -72,7 +72,8 @@ public class Boat : MonoBehaviour {
 	void fireCannon(){
 		Transform thisCannon = this.transform.FindChild("Cannon");
 		Rigidbody clone = (Rigidbody)Instantiate(cannonBall, thisCannon.transform.position, Quaternion.Euler(90, 0, 0));
-		clone.AddForce (Vector3.right * 80);
+		clone.AddForce (this.transform.root.right * 80f);
+		Destroy(clone.transform.gameObject, 3f);
 	}
 
 }
