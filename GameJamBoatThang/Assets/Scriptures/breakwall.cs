@@ -11,7 +11,7 @@ public class breakwall : MonoBehaviour {
 
 	void Update(){
 		if (health <= 0) {
-			Destroy(this.gameObject, 1.0f);
+			Destroy(this.gameObject, 0.2f);
 		}
 	}
 
