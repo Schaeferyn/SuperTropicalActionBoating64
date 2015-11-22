@@ -18,8 +18,11 @@ public class StationSails : BoatStation
         sailOpen.PlayAnim();
         //sailOpen.AnimEnded() => 
         //{
-            
+
         //}
+
+        myBoat.isSailOpen = true;
+        
     }
 
     public override void Deactivate()
@@ -30,6 +33,8 @@ public class StationSails : BoatStation
         sailIdle.SetRendererVisibility(false);
         sailClosed.SetRendererVisibility(true);
         sailClosed.PlayAnim();
+
+        myBoat.isSailOpen = false;
     }
 
     //public override void ProcessControls(Player player)

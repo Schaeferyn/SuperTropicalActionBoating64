@@ -10,7 +10,7 @@ public class Boat : MonoBehaviour {
 	private bool mast = true;
 	private bool wheel = true;
 	public float baseSpeed = 2;
-	private float maxSpeed = 2.5f;
+	private float maxSpeed = 0.75f;
 	public Rigidbody cannonBall;
 	public int lastCheck = 0;
 
@@ -20,21 +20,28 @@ public class Boat : MonoBehaviour {
 	public bool aIn;
 	bool keyPressed = false;
 
+    public bool isSailOpen = false;
+
     //InputDevice myDevice;
 
 	// Update is called once per frame
 	void Update () {
 
-  //      if (InputManager.Devices.Count - 1 >= playerIndex)
-  //          myDevice = InputManager.Devices[playerIndex];
-  //      else
-  //          myDevice = null;
+        //      if (InputManager.Devices.Count - 1 >= playerIndex)
+        //          myDevice = InputManager.Devices[playerIndex];
+        //      else
+        //          myDevice = null;
 
-  //      if (myDevice == null) return;
-	
-  //      xIn = myDevice.LeftStick.X;
-  //      yIn = myDevice.LeftStick.Y;
-  //      aIn = myDevice.Action1.WasPressed;
+        //      if (myDevice == null) return;
+
+        //      xIn = myDevice.LeftStick.X;
+        //      yIn = myDevice.LeftStick.Y;
+        //      aIn = myDevice.Action1.WasPressed;
+
+        if (isSailOpen)
+            yIn = 1.0f;
+        else
+            yIn = 0.0f;
 
 		//if (cannon == true) {
 		//	// Cannon Controls
@@ -62,6 +69,8 @@ public class Boat : MonoBehaviour {
 			if (this.GetComponent<Rigidbody> ().velocity.z < maxSpeed) {
 				this.GetComponent<Rigidbody> ().AddRelativeForce (new Vector3 (0, yIn, 0));
 			}
+
+            Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, maxSpeed);
 		}
 	}
 
