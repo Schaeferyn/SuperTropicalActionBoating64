@@ -5,7 +5,7 @@ using System.Collections;
 public class Boat : MonoBehaviour {
 
 	public Transform lastCheckpoint;
-	public int playerIndex;
+	public int teamIndex;
 	private bool cannon = true;
 	private bool mast = true;
 	private bool wheel = true;

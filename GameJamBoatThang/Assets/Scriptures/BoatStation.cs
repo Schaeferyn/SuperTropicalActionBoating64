@@ -26,10 +26,10 @@ public class BoatStation : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("trigger exit");
+        //Debug.Log("trigger exit");
         if (other.tag == "Pirate")
         {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
 
             //if(!isActive)
             //{
@@ -51,7 +51,7 @@ public class BoatStation : MonoBehaviour
 
     public virtual void Deactivate()
     {
-        Debug.Log(name + " deactivating at " + Time.time);
+        //Debug.Log(name + " deactivating at " + Time.time);
         isActive = false;
         //activePirate = null;
     }
