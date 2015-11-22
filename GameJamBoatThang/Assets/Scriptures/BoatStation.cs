@@ -8,6 +8,8 @@ public class BoatStation : MonoBehaviour
     //Pirate activePirate;
     public Boat myBoat;
 
+    public int health = 100;
+
     void Start()
     {
         myBoat = transform.parent.GetComponent<Boat>();
@@ -59,5 +61,10 @@ public class BoatStation : MonoBehaviour
     public virtual void ProcessControls(InControl.InputDevice player)
     {
         
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
