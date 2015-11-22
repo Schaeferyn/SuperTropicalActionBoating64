@@ -20,7 +20,6 @@ public class checkpoint : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 
 		if (col.gameObject.name == "Boat" && isPassed == false) {
-			Debug.Log("Yo");
 			isPassed = true;
 			lastCheck++;
 		}

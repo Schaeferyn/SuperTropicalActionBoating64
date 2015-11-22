@@ -66,5 +66,4 @@ public class Boat : MonoBehaviour {
 		clone.AddForce (this.transform.root.right * 80f);
 		Destroy(clone.transform.gameObject, 5f);
 	}
-
 }
