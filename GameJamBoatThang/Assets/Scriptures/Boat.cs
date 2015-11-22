@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Rewired;
+//using Rewired;
+using InControl;
 
 public class Boat : MonoBehaviour {
 
 	public int playerIndex;
-	Player player;
+	//Player player;
 	private bool cannon = true;
 	private bool mast = true;
 	private bool wheel = true;
@@ -19,17 +20,28 @@ public class Boat : MonoBehaviour {
 	bool aIn;
 	bool keyPressed = false;
 
+    InputDevice myDevice;
+
 	void Start(){
-		player = ReInput.players.GetPlayer(playerIndex);
+		//player = ReInput.players.GetPlayer(playerIndex);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+        if (InputManager.Devices.Count - 1 >= playerIndex)
+            myDevice = InputManager.Devices[playerIndex];
+        else
+            myDevice = null;
 
-		xIn = player.GetAxis("MoveHorizontal");
-		yIn = player.GetAxis("MoveVertical");
-		aIn = player.GetButton ("ButtonA");
+        if (myDevice == null) return;
+
+        //xIn = player.GetAxis("MoveHorizontal");
+        //yIn = player.GetAxis("MoveVertical");
+        //aIn = player.GetButton ("ButtonA");
+        xIn = myDevice.LeftStick.X;
+        yIn = myDevice.LeftStick.Y;
+        aIn = myDevice.Action1.WasPressed;
 
 		if (cannon == true) {
 			// Cannon Controls

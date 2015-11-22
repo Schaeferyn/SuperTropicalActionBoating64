@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Rewired;
+//using Rewired;
 
 public class StationSails : BoatStation
 {
@@ -32,8 +32,8 @@ public class StationSails : BoatStation
         sailClosed.PlayAnim();
     }
 
-    public override void ProcessControls(Player player)
-    {
+    //public override void ProcessControls(Player player)
+    //{
 
-    }
+    //}
 }

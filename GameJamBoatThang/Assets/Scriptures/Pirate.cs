@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Rewired;
+using InControl;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Pirate : MonoBehaviour
 {
     public int playerIndex;
-    Player player;
 
     Rigidbody myBody;
 
@@ -23,11 +22,11 @@ public class Pirate : MonoBehaviour
     Image myIcon;
     BoatStation nearbyStation;
 
+    InputDevice myDevice;
+
 	// Use this for initialization
 	void Start ()
     {
-        player = ReInput.players.GetPlayer(playerIndex);
-
         myBody = GetComponent<Rigidbody>();
         myIcon = UIManager.instance.transform.Find("p"+ (playerIndex+1).ToString() +"icon").GetComponent<Image>();
         myIcon.enabled = false;
@@ -36,33 +35,40 @@ public class Pirate : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if(!isBusy)
-        {
-            xIn = player.GetAxis("MoveHorizontal");
-            yIn = player.GetAxis("MoveVertical");
+        if (InputManager.Devices.Count - 1 >= playerIndex)
+            myDevice = InputManager.Devices[playerIndex];
+        else
+            myDevice = null;
 
-            if(myIcon.enabled)
+        if (myDevice == null) return;
+
+        if (!isBusy)
+        {
+            xIn = myDevice.LeftStick.X;
+            yIn = myDevice.LeftStick.Y;
+
+            if (myIcon.enabled)
             {
                 myIcon.transform.position = Camera.main.WorldToScreenPoint(transform.position + (Vector3.forward * 0.5f));
             }
         }
-        else
-        {
-            nearbyStation.ProcessControls(player);
-        }
+        //else
+        //{
+        //    nearbyStation.ProcessControls(player);
+        //}
 
-        if(player.GetButtonDown("ButtonA"))
+        if (myDevice.Action1.WasPressed)
         {
-            if(isNearStation && !isBusy)
+            if (isNearStation && !isBusy)
             {
                 isBusy = true;
                 nearbyStation.Activate(this);
             }
         }
 
-        if(player.GetButtonDown("ButtonB"))
+        if (myDevice.Action2.WasPressed)
         {
-            if(isBusy)
+            if (isBusy)
             {
                 isBusy = false;
                 nearbyStation.Deactivate();
@@ -70,7 +76,7 @@ public class Pirate : MonoBehaviour
                 if (isNearStation)
                     EnterStationTrigger(nearbyStation);
 
-                    //myIcon.enabled = true;
+                //myIcon.enabled = true;
             }
         }
 

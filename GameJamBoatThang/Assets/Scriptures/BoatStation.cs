@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Rewired;
+//using Rewired;
 
 public class BoatStation : MonoBehaviour
 {
@@ -50,8 +50,8 @@ public class BoatStation : MonoBehaviour
         //activePirate = null;
     }
 
-    public virtual void ProcessControls(Player player)
-    {
+    //public virtual void ProcessControls(Player player)
+    //{
 
-    }
+    //}
 }
