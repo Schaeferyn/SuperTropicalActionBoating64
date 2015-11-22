@@ -6,7 +6,6 @@ using InControl;
 public class Boat : MonoBehaviour {
 
 	public int playerIndex;
-	//Player player;
 	private bool cannon = true;
 	private bool mast = true;
 	private bool wheel = true;
@@ -22,10 +21,6 @@ public class Boat : MonoBehaviour {
 
     InputDevice myDevice;
 
-	void Start(){
-		//player = ReInput.players.GetPlayer(playerIndex);
-	}
-	
 	// Update is called once per frame
 	void Update () {
 
@@ -35,10 +30,7 @@ public class Boat : MonoBehaviour {
             myDevice = null;
 
         if (myDevice == null) return;
-
-        //xIn = player.GetAxis("MoveHorizontal");
-        //yIn = player.GetAxis("MoveVertical");
-        //aIn = player.GetButton ("ButtonA");
+	
         xIn = myDevice.LeftStick.X;
         yIn = myDevice.LeftStick.Y;
         aIn = myDevice.Action1.WasPressed;
