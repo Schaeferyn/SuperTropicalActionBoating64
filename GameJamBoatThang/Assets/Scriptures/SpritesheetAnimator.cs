@@ -21,6 +21,7 @@ public class SpritesheetAnimator : MonoBehaviour
     bool isPlaying = false;
 
     public bool shouldPlayIdleSailAnimation = false;
+    public bool disableRendererOnAnimEnd = false;
 
 	// Use this for initialization
 	void Start ()
@@ -59,18 +60,22 @@ public class SpritesheetAnimator : MonoBehaviour
     {
         isPlaying = false;
 
-        Debug.Log("aksdjfkasdfh");
+        //Debug.Log("aksdjfkasdfh");
         if(shouldPlayIdleSailAnimation)
         {
             transform.parent.Find("Sail").GetComponent<SpritesheetAnimator>().PlayAnim();
-            this.SetRendererVisibility(false);
-            
+            this.SetRendererVisibility(false);   
+        }
+
+        if(disableRendererOnAnimEnd)
+        {
+            SetRendererVisibility(false);
         }
     }
 
     public void PlayAnim()
     {
-        Debug.Log(name + " started at " + Time.time);
+        //Debug.Log(name + " started at " + Time.time);
 
         SetRendererVisibility(true);
 

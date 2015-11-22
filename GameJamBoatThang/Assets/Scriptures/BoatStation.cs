@@ -6,6 +6,12 @@ public class BoatStation : MonoBehaviour
 {
     public bool isActive = false;
     //Pirate activePirate;
+    public Boat myBoat;
+
+    void Start()
+    {
+        myBoat = transform.parent.GetComponent<Boat>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -50,8 +56,8 @@ public class BoatStation : MonoBehaviour
         //activePirate = null;
     }
 
-    //public virtual void ProcessControls(Player player)
-    //{
-
-    //}
+    public virtual void ProcessControls(InControl.InputDevice player)
+    {
+        
+    }
 }
