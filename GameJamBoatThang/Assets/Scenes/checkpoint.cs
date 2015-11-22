@@ -3,6 +3,8 @@ using System.Collections;
 
 public class checkpoint : MonoBehaviour {
 
+
+	int lastCheck = 0;
 	bool isPassed = false;
 
 	// Use this for initialization
@@ -15,7 +17,12 @@ public class checkpoint : MonoBehaviour {
 	
 	}
 
-	void onTriggerEnter(){
-		isPassed = true;
+	void OnTriggerEnter(Collider col){
+
+		if (col.gameObject.name == "Boat" && isPassed == false) {
+			isPassed = true;
+			Debug.Log("Yes!");
+			lastCheck++;
+		}
 	}
 }
