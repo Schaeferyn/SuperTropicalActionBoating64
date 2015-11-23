@@ -33,6 +33,8 @@ public class Pirate : MonoBehaviour
     public bool hasAmmo = false;
     SpriteRenderer ammoRenderer;
 
+	float y;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -44,6 +46,8 @@ public class Pirate : MonoBehaviour
         pirateCam = myBoat.GetComponentInChildren<Camera>();
         ammoRenderer = transform.Find("Ammo").GetComponent<SpriteRenderer>();
         ammoRenderer.enabled = false;
+
+		y = transform.position.y;
     }
 
     // Update is called once per frame
@@ -84,7 +88,7 @@ public class Pirate : MonoBehaviour
         {
             if (isBusy)
             {
-                isBusy = false;
+                
                 nearbyStation.Deactivate();
 
                 if (isNearStation)
@@ -92,6 +96,7 @@ public class Pirate : MonoBehaviour
 
                 //myIcon.enabled = true;
             }
+			isBusy = false;
         }
 
         if (isNearStation && nearbyStation.isActive && myIcon.enabled)
@@ -109,6 +114,10 @@ public class Pirate : MonoBehaviour
         newpos.y = Mathf.Clamp(newpos.y, -0.925f, 0.177f);
         transform.localPosition = newpos;
 
+		Vector3 pos = transform.position;
+		pos.y = y;
+		transform.position = pos;
+
 
         //Debug.Log(velo.magnitude);
         velo.z = velo.y;
@@ -117,7 +126,7 @@ public class Pirate : MonoBehaviour
         if (Mathf.Abs(xIn) > 0.1 || Mathf.Abs(yIn) > 0.1)
         {
             transform.LookAt(transform.position + velo.normalized);
-            transform.Rotate(90, 0, 0);
+            transform.Rotate(90, myBoat.transform.eulerAngles.y, 0);
         }
     }
 

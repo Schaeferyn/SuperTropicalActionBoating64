@@ -41,6 +41,7 @@ public class BoatStation : MonoBehaviour
             //    activePirate.ExitStationTrigger();
             //}
             p.ExitStationTrigger();
+			this.Deactivate();
             //}
         }
     }

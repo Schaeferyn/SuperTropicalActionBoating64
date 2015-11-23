@@ -8,6 +8,8 @@ public class StationSails : BoatStation
     public SpritesheetAnimator sailClosed;
     public SpritesheetAnimator sailIdle;
 
+
+
     public override void Activate(Pirate p)
     {
         base.Activate(p);
@@ -16,6 +18,8 @@ public class StationSails : BoatStation
         sailIdle.SetRendererVisibility(false);
         sailOpen.SetRendererVisibility(true);
         sailOpen.PlayAnim();
+
+		sailOpen.shouldStop = false;
         //sailOpen.AnimEnded() => 
         //{
 
@@ -33,6 +37,8 @@ public class StationSails : BoatStation
         sailIdle.SetRendererVisibility(false);
         sailClosed.SetRendererVisibility(true);
         sailClosed.PlayAnim();
+
+		sailOpen.shouldStop = true;
 
         myBoat.isSailOpen = false;
     }

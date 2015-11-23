@@ -18,10 +18,12 @@ public class SpritesheetAnimator : MonoBehaviour
 
     public bool startEnabled = true;
     public EndState endState;
-    bool isPlaying = false;
+    public bool isPlaying = false;
 
     public bool shouldPlayIdleSailAnimation = false;
     public bool disableRendererOnAnimEnd = false;
+
+	public bool shouldStop = false;
 
 	// Use this for initialization
 	void Start ()
@@ -76,6 +78,8 @@ public class SpritesheetAnimator : MonoBehaviour
     public void PlayAnim()
     {
         //Debug.Log(name + " started at " + Time.time);
+//		if (isPlaying)
+//			return;
 
         SetRendererVisibility(true);
 
@@ -93,5 +97,6 @@ public class SpritesheetAnimator : MonoBehaviour
     public void SetRendererVisibility(bool isVisible)
     {
         myRenderer.enabled = isVisible;
+
     }
 }
