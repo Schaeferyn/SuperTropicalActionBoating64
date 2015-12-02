@@ -67,8 +67,6 @@ public class checkpoint : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 
-        //Debug.Log("asdf");
-
 		if (col.tag == "Boat" /*&& isPassed == false*/) {
 
             //Debug.Log("asdf2 " + name);
@@ -82,24 +80,18 @@ public class checkpoint : MonoBehaviour {
             {
 
                 //Debug.Log("asdf3");
-                winning = true;
 				AudioSource victAudio = GameObject.Find ("VictoryAudio").GetComponent<AudioSource> ();
 				victAudio.Play ();
-                if (victoryText != null)
-                {
-
-                    //victoryText.enabled = true;
-                    if (boat.teamIndex == 0)
-                    {
-                        victoryText.text = "Blue Team Wins!";
-                        victoryColor = Color.blue;
-                    }
-                    else
-                    {
-                        victoryText.text = "Red Team Wins!";
-                        victoryColor = Color.red;
-                    }
-                }
+				if (boat.teamIndex == 0)
+				{
+					victoryText.text = "Blue Team Wins!";
+					victoryColor = Color.blue;
+				}
+				else
+				{
+					victoryText.text = "Red Team Wins!";
+					victoryColor = Color.red;
+				}
             }
 		}
 	}
